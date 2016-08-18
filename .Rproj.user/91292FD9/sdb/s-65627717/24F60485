@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "---\ntitle: \"flexDashboard - webFrontEnd coLearning Attedants\"\noutput: \n  flexdashboard::flex_dashboard:\n     orientation: rows\n     theme: flatly\n---\n\n```{r setup, include=FALSE}\nsource(\"preproc.R\")\n```\n\nRow {.tabset .tabset-fade}\n-----------------------------------------------------------------------\n\n### Attedants Data\n\n```{r}\ndatatable(df[,1:6],style=\"bootstrap\")\n```\n\n\n\n### Registered(rsvp), total and new attendants \n\n```{r}\ndygraph(rsvpTS[,c(1,4,5)]) %>%\ndyRangeSelector(dateWindow = c(\"2016-01-01\", \"2016-08-17\")) %>%\ndyOptions(connectSeparatedPoints = TRUE,\n          colors = RColorBrewer::brewer.pal(3, \"Set2\")) %>%\ndySeries(\"registered\",strokeWidth = 2, strokePattern = \"dashed\")%>%\ndySeries(\"Total\",stepPlot = TRUE, fillGraph = TRUE)\n```\n\n### Attendants based on gender\n\n```{r}\ndygraph(rsvpTS[,c(2:3)]) %>%\n  dyRangeSelector(dateWindow = c(\"2016-01-01\", \"2016-08-17\")) %>%\n  dyOptions(connectSeparatedPoints = TRUE,stackedGraph = TRUE,\n            colors = RColorBrewer::brewer.pal(3, \"Set1\"))\n```\n\n",
+    "created" : 1471478744305.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2912086676",
+    "id" : "24F60485",
+    "lastKnownWriteTime" : 1471479445,
+    "last_content_update" : 1471479445335,
+    "path" : "~/VisTest/layout1.Rmd",
+    "project_path" : "layout1.Rmd",
+    "properties" : {
+        "tempName" : "Untitled2"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

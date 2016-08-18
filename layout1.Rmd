@@ -1,0 +1,43 @@
+---
+title: "flexDashboard - webFrontEnd coLearning Attedants"
+output: 
+  flexdashboard::flex_dashboard:
+     orientation: rows
+     theme: flatly
+---
+
+```{r setup, include=FALSE}
+source("preproc.R")
+```
+
+Row {.tabset .tabset-fade}
+-----------------------------------------------------------------------
+
+### Attedants Data
+
+```{r}
+datatable(df[,1:6],style="bootstrap")
+```
+
+
+
+### Registered(rsvp), total and new attendants 
+
+```{r}
+dygraph(rsvpTS[,c(1,4,5)]) %>%
+dyRangeSelector(dateWindow = c("2016-01-01", "2016-08-17")) %>%
+dyOptions(connectSeparatedPoints = TRUE,
+          colors = RColorBrewer::brewer.pal(3, "Set2")) %>%
+dySeries("registered",strokeWidth = 2, strokePattern = "dashed")%>%
+dySeries("Total",stepPlot = TRUE, fillGraph = TRUE)
+```
+
+### Attendants based on gender
+
+```{r}
+dygraph(rsvpTS[,c(2:3)]) %>%
+  dyRangeSelector(dateWindow = c("2016-01-01", "2016-08-17")) %>%
+  dyOptions(connectSeparatedPoints = TRUE,stackedGraph = TRUE,
+            colors = RColorBrewer::brewer.pal(3, "Set1"))
+```
+

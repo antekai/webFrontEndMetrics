@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "#interactive data table\ndatatable(df)\n\n#time-series visualization\n#chart1\ndygraph(rsvpTS[,c(1,4,5)],main = \"Attendants\") %>%\n  dyRangeSelector(dateWindow = c(\"2016-01-01\", \"2016-08-17\")) %>%\n  dyOptions(connectSeparatedPoints = TRUE,\n            colors = RColorBrewer::brewer.pal(3, \"Set2\")) %>%\n  dySeries(\"rsvp\",strokeWidth = 2, strokePattern = \"dashed\")%>%\n  dySeries(\"Total\",stepPlot = TRUE, fillGraph = TRUE)\n#chart2\ndygraph(rsvpTS[,c(2:3)]) %>%\n  dyRangeSelector(dateWindow = c(\"2016-01-01\", \"2016-08-17\")) %>%\n  dyOptions(connectSeparatedPoints = TRUE,stackedGraph = TRUE,\n            colors = RColorBrewer::brewer.pal(3, \"Set1\")) ",
+    "created" : 1471475578791.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "593352167",
+    "id" : "795DFA13",
+    "lastKnownWriteTime" : 1471478778,
+    "last_content_update" : 1471478778934,
+    "path" : "~/VisTest/visTest.R",
+    "project_path" : "visTest.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

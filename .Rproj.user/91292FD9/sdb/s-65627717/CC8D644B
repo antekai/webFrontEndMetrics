@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "#loading required libraries\nlib=c(\"flexdashboard\",\"lubridate\",\"xts\",\n      \"htmlwidgets\",\"dygraphs\",\"googlesheets\",\"DT\")\nsapply(lib,require,character.only=T)\n\n#parsing googlesheet data\ngsraw=gs_url(\"https://docs.google.com/spreadsheets/d/1cu5ZoZX9X6a9oZ6aPEP5w_CBuTVJ8sitikwJiEzeQ6U/pubhtml\")\ndf=gs_read_listfeed(gsraw,na.strings=c(\"?\",\"\"))\nnames(df)[2]=\"registered\"\n\n#preprocess data.frame\ndf$Date=as.Date(dmy(df$Date))#library(lubridate) #parsing dates\nrsvpTS=xts(df[,2:6],order.by=df$Date) #library(xts) #convert to time series\n\n",
+    "created" : 1471476738242.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3860823951",
+    "id" : "CC8D644B",
+    "lastKnownWriteTime" : 1471479408,
+    "last_content_update" : 1471479408849,
+    "path" : "~/VisTest/preproc.R",
+    "project_path" : "preproc.R",
+    "properties" : {
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
